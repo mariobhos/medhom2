@@ -38,3 +38,7 @@ yarn-error.log*
 # agent tooling artifacts
 .agents/
 skills-lock.json
+
+# catch-all for any other env file; the documented example stays tracked
+.env*
+!.env.example
