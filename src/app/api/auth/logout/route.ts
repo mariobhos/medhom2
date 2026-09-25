@@ -1,0 +1,12 @@
+import { NextResponse } from "next/server";
+import { SESSION_COOKIE, sessionCookieOptions } from "@/lib/auth";
+
+export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
+
+/** Clears the session cookie. Safe to call whether or not a session exists. */
+export async function POST(): Promise<NextResponse> {
+  const response = NextResponse.json({ ok: true });
+  response.cookies.set(SESSION_COOKIE, "", { ...sessionCookieOptions(), maxAge: 0 });
+  return response;
+}
